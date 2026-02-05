@@ -2,39 +2,39 @@ import { baseLayout, navbar } from '../layout'
 
 export const renderFinancerDashboard = () => baseLayout('融资者控制台', `
 ${navbar()}
-<div class="flex">
-    <!-- 侧边栏 -->
-    <aside class="w-64 bg-white shadow-lg min-h-screen">
-        <div class="p-6 border-b">
+<div class="flex bg-primary-50">
+    <!-- 侧边栏 - Apple风格 -->
+    <aside class="w-64 bg-white border-r border-primary-100 min-h-screen">
+        <div class="p-5 border-b border-primary-100">
             <div class="flex items-center">
-                <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center">
-                    <i class="fas fa-user text-indigo-600 text-xl"></i>
+                <div class="w-10 h-10 bg-primary-900 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-user text-white text-sm"></i>
                 </div>
                 <div class="ml-3">
-                    <div class="font-medium text-gray-800" id="user-name">加载中...</div>
-                    <div class="text-sm text-gray-500">融资者</div>
+                    <div class="font-medium text-primary-900 text-sm" id="user-name">加载中...</div>
+                    <div class="text-xs text-primary-400">融资者</div>
                 </div>
             </div>
         </div>
-        <nav class="mt-4">
-            <a href="/financer/dashboard" class="flex items-center px-6 py-3 text-indigo-600 bg-indigo-50 border-r-4 border-indigo-600">
-                <i class="fas fa-th-large w-5 mr-3"></i>
+        <nav class="mt-2 px-3">
+            <a href="/financer/dashboard" class="flex items-center px-4 py-2.5 my-1 rounded-lg text-sm font-medium bg-primary-900 text-white">
+                <i class="fas fa-th-large w-5 mr-3 text-sm"></i>
                 <span>赛道选择</span>
             </a>
-            <a href="#" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-50">
-                <i class="fas fa-folder w-5 mr-3"></i>
+            <a href="/financer/projects" class="flex items-center px-4 py-2.5 my-1 rounded-lg text-sm font-medium text-primary-600 hover:bg-primary-100 transition">
+                <i class="fas fa-folder w-5 mr-3 text-sm"></i>
                 <span>我的项目</span>
             </a>
-            <a href="#" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-50">
-                <i class="fas fa-bell w-5 mr-3"></i>
+            <a href="/financer/messages" class="flex items-center px-4 py-2.5 my-1 rounded-lg text-sm font-medium text-primary-600 hover:bg-primary-100 transition">
+                <i class="fas fa-bell w-5 mr-3 text-sm"></i>
                 <span>消息中心</span>
             </a>
-            <a href="#" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-50">
-                <i class="fas fa-cog w-5 mr-3"></i>
+            <a href="/financer/settings" class="flex items-center px-4 py-2.5 my-1 rounded-lg text-sm font-medium text-primary-600 hover:bg-primary-100 transition">
+                <i class="fas fa-cog w-5 mr-3 text-sm"></i>
                 <span>个人设置</span>
             </a>
-            <a href="#" onclick="logout()" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-50">
-                <i class="fas fa-sign-out-alt w-5 mr-3"></i>
+            <a href="javascript:void(0)" onclick="logout()" class="flex items-center px-4 py-2.5 my-1 rounded-lg text-sm font-medium text-primary-600 hover:bg-primary-100 transition">
+                <i class="fas fa-sign-out-alt w-5 mr-3 text-sm"></i>
                 <span>退出登录</span>
             </a>
         </nav>
@@ -43,35 +43,37 @@ ${navbar()}
     <!-- 主内容区 -->
     <main class="flex-1 p-8">
         <div class="mb-8">
-            <h1 class="text-2xl font-bold text-gray-800">选择融资赛道</h1>
-            <p class="text-gray-600 mt-2">请根据您的业务类型选择合适的融资赛道，我们将为您匹配专属的AI智能评估方案</p>
+            <h1 class="text-2xl font-semibold text-primary-900 tracking-tight">选择融资赛道</h1>
+            <p class="text-primary-500 mt-2 text-sm">请根据您的业务类型选择合适的融资赛道，我们将为您匹配专属的 AI 智能评估方案</p>
         </div>
 
         <!-- 赛道卡片 -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="tracks-container">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5" id="tracks-container">
             <!-- 动态加载 -->
         </div>
 
         <!-- 我的项目列表 -->
         <div class="mt-12">
-            <h2 class="text-xl font-bold text-gray-800 mb-4">我的申报项目</h2>
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+            <h2 class="text-lg font-semibold text-primary-900 mb-4">我的申报项目</h2>
+            <div class="bg-white rounded-2xl border border-primary-100 overflow-hidden">
                 <table class="w-full">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">项目编号</th>
-                            <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">赛道</th>
-                            <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">完善度</th>
-                            <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">状态</th>
-                            <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">创建时间</th>
-                            <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">操作</th>
+                    <thead>
+                        <tr class="border-b border-primary-100">
+                            <th class="px-6 py-3 text-left text-xs font-medium text-primary-400 uppercase tracking-wide">项目编号</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-primary-400 uppercase tracking-wide">赛道</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-primary-400 uppercase tracking-wide">完善度</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-primary-400 uppercase tracking-wide">状态</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-primary-400 uppercase tracking-wide">创建时间</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-primary-400 uppercase tracking-wide">操作</th>
                         </tr>
                     </thead>
                     <tbody id="projects-table">
                         <tr>
-                            <td colspan="6" class="px-6 py-8 text-center text-gray-500">
-                                <i class="fas fa-folder-open text-4xl text-gray-300 mb-2"></i>
-                                <p>暂无项目，请选择赛道开始申报</p>
+                            <td colspan="6" class="px-6 py-12 text-center">
+                                <div class="w-12 h-12 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-3">
+                                    <i class="fas fa-folder-open text-primary-400 text-lg"></i>
+                                </div>
+                                <p class="text-primary-400 text-sm">暂无项目，请选择赛道开始申报</p>
                             </td>
                         </tr>
                     </tbody>
@@ -129,40 +131,40 @@ ${navbar()}
         }
     ];
 
-    // 渲染赛道卡片
+    // 渲染赛道卡片 - 简约风格
     function renderTracks() {
         const container = document.getElementById('tracks-container');
         container.innerHTML = tracks.map(track => \`
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover transition-all duration-300 cursor-pointer"
+            <div class="bg-white rounded-2xl border border-primary-100 overflow-hidden card-hover cursor-pointer"
                  onclick="selectTrack(\${track.id})">
                 <div class="p-6">
                     <div class="flex items-start justify-between">
-                        <div class="w-14 h-14 bg-\${track.color}-100 rounded-xl flex items-center justify-center">
-                            <i class="fas fa-\${track.icon} text-\${track.color}-600 text-2xl"></i>
+                        <div class="w-12 h-12 bg-primary-900 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-\${track.icon} text-white text-lg"></i>
                         </div>
-                        <span class="px-3 py-1 bg-\${track.color}-50 text-\${track.color}-600 text-sm rounded-full">
-                            \${track.stats.projects}个项目
+                        <span class="px-2.5 py-1 bg-primary-50 text-primary-600 text-xs font-medium rounded-lg">
+                            \${track.stats.projects} 个项目
                         </span>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mt-4">\${track.name}</h3>
-                    <p class="text-gray-600 mt-2 text-sm">\${track.description}</p>
-                    <div class="mt-4 pt-4 border-t flex justify-between text-sm">
+                    <h3 class="text-lg font-semibold text-primary-900 mt-4">\${track.name}</h3>
+                    <p class="text-primary-500 mt-2 text-sm leading-relaxed">\${track.description}</p>
+                    <div class="mt-4 pt-4 border-t border-primary-100 flex justify-between text-sm">
                         <div>
-                            <span class="text-gray-500">累计投资</span>
-                            <span class="ml-2 font-bold text-gray-800">¥\${track.stats.amount}</span>
+                            <span class="text-primary-400">累计投资</span>
+                            <span class="ml-2 font-semibold text-primary-900">¥\${track.stats.amount}</span>
                         </div>
                         <div>
-                            <span class="text-gray-500">平均收益</span>
-                            <span class="ml-2 font-bold text-green-600">\${track.stats.avgReturn}</span>
+                            <span class="text-primary-400">平均收益</span>
+                            <span class="ml-2 font-semibold text-success-600">\${track.stats.avgReturn}</span>
                         </div>
                     </div>
                 </div>
-                <div class="px-6 py-4 bg-gray-50 flex justify-between items-center">
-                    <span class="text-sm text-gray-600">
-                        <i class="fas fa-robot mr-1"></i>AI智能评估已就绪
+                <div class="px-6 py-4 bg-primary-50 flex justify-between items-center">
+                    <span class="text-xs text-primary-500">
+                        <span class="w-1.5 h-1.5 bg-success-400 rounded-full inline-block mr-1.5 animate-pulse"></span>AI 智能评估已就绪
                     </span>
-                    <button class="px-4 py-2 bg-\${track.color}-600 text-white rounded-lg text-sm font-medium hover:bg-\${track.color}-700 transition">
-                        立即申报 <i class="fas fa-arrow-right ml-1"></i>
+                    <button class="px-4 py-2 bg-primary-900 text-white rounded-lg text-xs font-medium hover:bg-primary-800 transition">
+                        立即申报 <i class="fas fa-arrow-right ml-1.5 text-xs"></i>
                     </button>
                 </div>
             </div>
@@ -174,7 +176,7 @@ ${navbar()}
         window.location.href = '/financer/report/' + trackId;
     }
 
-    // 加载项目列表
+    // 加载项目列表 - 简约风格
     async function loadProjects() {
         try {
             const res = await DGT.api.get('/financer/projects');
@@ -184,25 +186,25 @@ ${navbar()}
             
             const tbody = document.getElementById('projects-table');
             tbody.innerHTML = projects.map(p => \`
-                <tr class="border-t hover:bg-gray-50">
-                    <td class="px-6 py-4 font-medium text-indigo-600">\${p.project_no}</td>
-                    <td class="px-6 py-4">\${p.track_name}</td>
+                <tr class="border-b border-primary-50 hover:bg-primary-50 transition">
+                    <td class="px-6 py-4 font-medium text-accent-600 text-sm">\${p.project_no}</td>
+                    <td class="px-6 py-4 text-primary-600 text-sm">\${p.track_name}</td>
                     <td class="px-6 py-4">
                         <div class="flex items-center">
-                            <div class="w-24 h-2 bg-gray-200 rounded-full mr-2">
-                                <div class="h-2 bg-indigo-600 rounded-full" style="width: \${p.completeness}%"></div>
+                            <div class="w-20 h-1.5 bg-primary-100 rounded-full mr-2">
+                                <div class="h-1.5 bg-primary-900 rounded-full" style="width: \${p.completeness}%"></div>
                             </div>
-                            <span class="text-sm">\${p.completeness}%</span>
+                            <span class="text-xs text-primary-500 font-medium">\${p.completeness}%</span>
                         </div>
                     </td>
                     <td class="px-6 py-4">
                         <span class="status-badge status-\${p.status}">\${getStatusText(p.status)}</span>
                     </td>
-                    <td class="px-6 py-4 text-sm text-gray-500">\${new Date(p.created_at).toLocaleDateString()}</td>
+                    <td class="px-6 py-4 text-xs text-primary-400">\${new Date(p.created_at).toLocaleDateString()}</td>
                     <td class="px-6 py-4">
                         <a href="/financer/report/\${p.track_id}?projectId=\${p.id}" 
-                           class="text-indigo-600 hover:text-indigo-800 text-sm">
-                            继续编辑 <i class="fas fa-edit ml-1"></i>
+                           class="text-primary-600 hover:text-primary-900 text-sm font-medium transition">
+                            继续编辑 <i class="fas fa-edit ml-1 text-xs"></i>
                         </a>
                     </td>
                 </tr>

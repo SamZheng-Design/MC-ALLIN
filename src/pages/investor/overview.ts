@@ -1,28 +1,32 @@
 import { baseLayout } from '../layout'
 
 export const renderInvestorOverview = () => baseLayout('市场总览', `
-<div class="min-h-screen bg-gray-100">
-    <!-- 顶部导航 -->
-    <nav class="gradient-bg shadow-lg">
+<div class="min-h-screen bg-primary-50">
+    <!-- 顶部导航 - 简约黑色 -->
+    <nav class="bg-primary-950 border-b border-white/5">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex justify-between h-14">
                 <div class="flex items-center">
-                    <i class="fas fa-tint text-white text-xl mr-2"></i>
-                    <span class="text-white font-bold">滴灌通</span>
-                    <span class="ml-4 text-white/80">投资者门户</span>
+                    <a href="/" class="flex items-center group">
+                        <div class="w-7 h-7 bg-white rounded-lg flex items-center justify-center mr-2.5 group-hover:scale-105 transition-transform">
+                            <span class="text-primary-900 font-bold text-xs">DG</span>
+                        </div>
+                        <span class="text-white logo-text">滴灌通</span>
+                    </a>
+                    <span class="ml-4 text-primary-400 text-sm">投资者门户</span>
                 </div>
-                <div class="flex items-center space-x-4">
-                    <a href="/investor/market-overview" class="text-white font-medium">市场总览</a>
-                    <a href="/investor/portfolio" class="text-white/70 hover:text-white">投资组合</a>
-                    <a href="/investor/pipeline" class="text-white/70 hover:text-white">Pipeline</a>
+                <div class="flex items-center space-x-6">
+                    <a href="/investor/market-overview" class="text-white text-sm font-medium">市场总览</a>
+                    <a href="/investor/portfolio" class="text-primary-400 hover:text-white text-sm transition">投资组合</a>
+                    <a href="/investor/pipeline" class="text-primary-400 hover:text-white text-sm transition">Pipeline</a>
                     <div class="ml-4 flex items-center">
-                        <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                            <i class="fas fa-user text-white text-sm"></i>
+                        <div class="w-7 h-7 bg-primary-800 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-primary-300 text-xs"></i>
                         </div>
                         <span class="ml-2 text-white text-sm" id="user-name">投资者</span>
                     </div>
-                    <button onclick="logout()" class="text-white/70 hover:text-white">
-                        <i class="fas fa-sign-out-alt"></i>
+                    <button onclick="logout()" class="text-primary-400 hover:text-white transition">
+                        <i class="fas fa-sign-out-alt text-sm"></i>
                     </button>
                 </div>
             </div>
@@ -30,114 +34,114 @@ export const renderInvestorOverview = () => baseLayout('市场总览', `
     </nav>
 
     <div class="max-w-7xl mx-auto py-8 px-4">
-        <!-- 大盘指标 -->
-        <div class="grid grid-cols-4 gap-6 mb-8">
-            <div class="bg-white rounded-xl shadow-lg p-6">
+        <!-- 大盘指标 - 简约卡片 -->
+        <div class="grid grid-cols-4 gap-5 mb-8">
+            <div class="bg-white rounded-2xl border border-primary-100 p-6 card-hover">
                 <div class="flex items-center justify-between">
                     <div>
-                        <div class="text-sm text-gray-500">全赛道项目数</div>
-                        <div class="text-3xl font-bold text-gray-800 mt-1" id="total-projects">1,280</div>
+                        <div class="text-xs text-primary-400 font-medium uppercase tracking-wide">全赛道项目数</div>
+                        <div class="text-3xl font-semibold text-primary-900 mt-2" id="total-projects">1,280</div>
                     </div>
-                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-                        <i class="fas fa-project-diagram text-blue-600 text-xl"></i>
+                    <div class="w-10 h-10 bg-primary-900 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-project-diagram text-white text-sm"></i>
                     </div>
                 </div>
-                <div class="mt-3 text-sm text-green-600">
+                <div class="mt-4 text-xs text-success-600 font-medium">
                     <i class="fas fa-arrow-up mr-1"></i>+12.5% 本月
                 </div>
             </div>
-            <div class="bg-white rounded-xl shadow-lg p-6">
+            <div class="bg-white rounded-2xl border border-primary-100 p-6 card-hover">
                 <div class="flex items-center justify-between">
                     <div>
-                        <div class="text-sm text-gray-500">已投规模</div>
-                        <div class="text-3xl font-bold text-gray-800 mt-1">¥<span id="invested-amount">29.6</span>亿</div>
+                        <div class="text-xs text-primary-400 font-medium uppercase tracking-wide">已投规模</div>
+                        <div class="text-3xl font-semibold text-primary-900 mt-2">¥<span id="invested-amount">29.6</span><span class="text-lg text-primary-400 ml-1">亿</span></div>
                     </div>
-                    <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
-                        <i class="fas fa-coins text-green-600 text-xl"></i>
+                    <div class="w-10 h-10 bg-primary-900 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-coins text-white text-sm"></i>
                     </div>
                 </div>
-                <div class="mt-3 text-sm text-green-600">
+                <div class="mt-4 text-xs text-success-600 font-medium">
                     <i class="fas fa-arrow-up mr-1"></i>+8.3% 本月
                 </div>
             </div>
-            <div class="bg-white rounded-xl shadow-lg p-6">
+            <div class="bg-white rounded-2xl border border-primary-100 p-6 card-hover">
                 <div class="flex items-center justify-between">
                     <div>
-                        <div class="text-sm text-gray-500">Pipeline规模</div>
-                        <div class="text-3xl font-bold text-gray-800 mt-1">¥<span id="pipeline-amount">5.2</span>亿</div>
+                        <div class="text-xs text-primary-400 font-medium uppercase tracking-wide">Pipeline规模</div>
+                        <div class="text-3xl font-semibold text-primary-900 mt-2">¥<span id="pipeline-amount">5.2</span><span class="text-lg text-primary-400 ml-1">亿</span></div>
                     </div>
-                    <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
-                        <i class="fas fa-stream text-purple-600 text-xl"></i>
+                    <div class="w-10 h-10 bg-primary-900 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-stream text-white text-sm"></i>
                     </div>
                 </div>
-                <div class="mt-3 text-sm text-purple-600">
+                <div class="mt-4 text-xs text-primary-400 font-medium">
                     <i class="fas fa-clock mr-1"></i>待投资
                 </div>
             </div>
-            <div class="bg-white rounded-xl shadow-lg p-6">
+            <div class="bg-white rounded-2xl border border-primary-100 p-6 card-hover">
                 <div class="flex items-center justify-between">
                     <div>
-                        <div class="text-sm text-gray-500">累计兑付</div>
-                        <div class="text-3xl font-bold text-gray-800 mt-1">¥<span id="payout-amount">18.9</span>亿</div>
+                        <div class="text-xs text-primary-400 font-medium uppercase tracking-wide">累计兑付</div>
+                        <div class="text-3xl font-semibold text-primary-900 mt-2">¥<span id="payout-amount">18.9</span><span class="text-lg text-primary-400 ml-1">亿</span></div>
                     </div>
-                    <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center">
-                        <i class="fas fa-hand-holding-usd text-orange-600 text-xl"></i>
+                    <div class="w-10 h-10 bg-primary-900 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-hand-holding-usd text-white text-sm"></i>
                     </div>
                 </div>
-                <div class="mt-3 text-sm text-green-600">
+                <div class="mt-4 text-xs text-success-600 font-medium">
                     <i class="fas fa-check-circle mr-1"></i>兑付率 98.5%
                 </div>
             </div>
         </div>
 
-        <!-- 图表区域 -->
-        <div class="grid grid-cols-2 gap-6 mb-8">
-            <div class="bg-white rounded-xl shadow-lg p-6">
-                <h3 class="font-bold text-gray-800 mb-4">行业分布</h3>
+        <!-- 图表区域 - 简约卡片 -->
+        <div class="grid grid-cols-2 gap-5 mb-8">
+            <div class="bg-white rounded-2xl border border-primary-100 p-6">
+                <h3 class="font-semibold text-primary-900 mb-4 text-sm">行业分布</h3>
                 <canvas id="industry-chart" height="200"></canvas>
             </div>
-            <div class="bg-white rounded-xl shadow-lg p-6">
-                <h3 class="font-bold text-gray-800 mb-4">产品层级分布</h3>
+            <div class="bg-white rounded-2xl border border-primary-100 p-6">
+                <h3 class="font-semibold text-primary-900 mb-4 text-sm">产品层级分布</h3>
                 <canvas id="layer-chart" height="200"></canvas>
             </div>
         </div>
 
-        <!-- Tab切换 -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-            <div class="flex border-b">
+        <!-- Tab切换 - 简约风格 -->
+        <div class="bg-white rounded-2xl border border-primary-100 overflow-hidden">
+            <div class="flex border-b border-primary-100">
                 <button id="tab-invested" onclick="switchTab('invested')" 
-                        class="flex-1 py-4 text-center font-medium text-indigo-600 border-b-2 border-indigo-600">
-                    <i class="fas fa-check-circle mr-2"></i>已投资项目
+                        class="flex-1 py-3.5 text-center text-sm font-medium text-primary-900 border-b-2 border-primary-900">
+                    <i class="fas fa-check-circle mr-2 text-xs"></i>已投资项目
                 </button>
                 <button id="tab-evaluating" onclick="switchTab('evaluating')" 
-                        class="flex-1 py-4 text-center font-medium text-gray-500 hover:text-gray-700">
-                    <i class="fas fa-search mr-2"></i>在评估项目
+                        class="flex-1 py-3.5 text-center text-sm font-medium text-primary-400 hover:text-primary-600 transition">
+                    <i class="fas fa-search mr-2 text-xs"></i>在评估项目
                 </button>
             </div>
 
-            <!-- 筛选器 -->
-            <div class="p-4 bg-gray-50 border-b flex items-center space-x-4">
-                <select class="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500">
+            <!-- 筛选器 - 简约风格 -->
+            <div class="p-4 bg-primary-50 border-b border-primary-100 flex items-center space-x-3">
+                <select class="px-3 py-2 border border-primary-200 rounded-lg text-sm bg-white focus:ring-2 focus:ring-primary-900 focus:border-primary-900">
                     <option value="">全部行业</option>
                     <option>连锁实体店</option>
                     <option>演唱会/商业活动</option>
                     <option>旅游景区</option>
                     <option>项目制非标服务</option>
                 </select>
-                <select class="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500">
+                <select class="px-3 py-2 border border-primary-200 rounded-lg text-sm bg-white focus:ring-2 focus:ring-primary-900 focus:border-primary-900">
                     <option value="">全部地区</option>
                     <option>华东</option>
                     <option>华南</option>
                     <option>华北</option>
                     <option>西南</option>
                 </select>
-                <select class="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500">
+                <select class="px-3 py-2 border border-primary-200 rounded-lg text-sm bg-white focus:ring-2 focus:ring-primary-900 focus:border-primary-900">
                     <option value="">全部层级</option>
                     <option>优先级</option>
                     <option>夹层</option>
                     <option>劣后级</option>
                 </select>
-                <select class="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500">
+                <select class="px-3 py-2 border border-primary-200 rounded-lg text-sm bg-white focus:ring-2 focus:ring-primary-900 focus:border-primary-900">
                     <option value="">风控评分</option>
                     <option>80分以上</option>
                     <option>60-80分</option>
@@ -145,22 +149,22 @@ export const renderInvestorOverview = () => baseLayout('市场总览', `
                 </select>
                 <div class="flex-1"></div>
                 <input type="text" placeholder="搜索项目..." 
-                       class="px-4 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500 w-48">
+                       class="px-4 py-2 border border-primary-200 rounded-lg text-sm bg-white focus:ring-2 focus:ring-primary-900 focus:border-primary-900 w-48">
             </div>
 
-            <!-- 已投资项目列表 -->
+            <!-- 已投资项目列表 - 简约表格 -->
             <div id="invested-list" class="p-4">
                 <table class="w-full">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="px-4 py-3 text-left text-sm font-medium text-gray-500">项目</th>
-                            <th class="px-4 py-3 text-left text-sm font-medium text-gray-500">行业</th>
-                            <th class="px-4 py-3 text-left text-sm font-medium text-gray-500">投资金额</th>
-                            <th class="px-4 py-3 text-left text-sm font-medium text-gray-500">层级</th>
-                            <th class="px-4 py-3 text-left text-sm font-medium text-gray-500">年化收益</th>
-                            <th class="px-4 py-3 text-left text-sm font-medium text-gray-500">风控评分</th>
-                            <th class="px-4 py-3 text-left text-sm font-medium text-gray-500">状态</th>
-                            <th class="px-4 py-3 text-left text-sm font-medium text-gray-500">操作</th>
+                    <thead>
+                        <tr class="border-b border-primary-100">
+                            <th class="px-4 py-3 text-left text-xs font-medium text-primary-400 uppercase tracking-wide">项目</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-primary-400 uppercase tracking-wide">行业</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-primary-400 uppercase tracking-wide">投资金额</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-primary-400 uppercase tracking-wide">层级</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-primary-400 uppercase tracking-wide">年化收益</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-primary-400 uppercase tracking-wide">风控评分</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-primary-400 uppercase tracking-wide">状态</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-primary-400 uppercase tracking-wide">操作</th>
                         </tr>
                     </thead>
                     <tbody id="invested-table">
@@ -172,15 +176,15 @@ export const renderInvestorOverview = () => baseLayout('市场总览', `
             <!-- 在评估项目列表 -->
             <div id="evaluating-list" class="p-4 hidden">
                 <table class="w-full">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="px-4 py-3 text-left text-sm font-medium text-gray-500">项目</th>
-                            <th class="px-4 py-3 text-left text-sm font-medium text-gray-500">行业</th>
-                            <th class="px-4 py-3 text-left text-sm font-medium text-gray-500">融资金额</th>
-                            <th class="px-4 py-3 text-left text-sm font-medium text-gray-500">分成比例</th>
-                            <th class="px-4 py-3 text-left text-sm font-medium text-gray-500">AI评分</th>
-                            <th class="px-4 py-3 text-left text-sm font-medium text-gray-500">可投层级</th>
-                            <th class="px-4 py-3 text-left text-sm font-medium text-gray-500">操作</th>
+                    <thead>
+                        <tr class="border-b border-primary-100">
+                            <th class="px-4 py-3 text-left text-xs font-medium text-primary-400 uppercase tracking-wide">项目</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-primary-400 uppercase tracking-wide">行业</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-primary-400 uppercase tracking-wide">融资金额</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-primary-400 uppercase tracking-wide">分成比例</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-primary-400 uppercase tracking-wide">AI评分</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-primary-400 uppercase tracking-wide">可投层级</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-primary-400 uppercase tracking-wide">操作</th>
                         </tr>
                     </thead>
                     <tbody id="evaluating-table">
@@ -257,27 +261,27 @@ export const renderInvestorOverview = () => baseLayout('市场总览', `
 
     function renderInvestedTable() {
         document.getElementById('invested-table').innerHTML = investedProjects.map(p => \`
-            <tr class="border-t hover:bg-gray-50">
+            <tr class="border-b border-primary-50 hover:bg-primary-50 transition">
                 <td class="px-4 py-4">
-                    <div class="font-medium text-gray-800">\${p.name}</div>
+                    <div class="font-medium text-primary-900 text-sm">\${p.name}</div>
                 </td>
-                <td class="px-4 py-4 text-sm">\${p.industry}</td>
-                <td class="px-4 py-4 font-medium">¥\${p.amount}万</td>
+                <td class="px-4 py-4 text-sm text-primary-600">\${p.industry}</td>
+                <td class="px-4 py-4 font-medium text-primary-900 text-sm">¥\${p.amount}万</td>
                 <td class="px-4 py-4">
-                    <span class="px-2 py-1 rounded text-xs \${getLayerClass(p.layer)}">\${getLayerText(p.layer)}</span>
+                    <span class="px-2 py-1 rounded-md text-xs font-medium \${getLayerClass(p.layer)}">\${getLayerText(p.layer)}</span>
                 </td>
-                <td class="px-4 py-4 text-green-600 font-medium">\${p.return}%</td>
+                <td class="px-4 py-4 text-success-600 font-semibold text-sm">\${p.return}%</td>
                 <td class="px-4 py-4">
                     <div class="flex items-center">
-                        <span class="font-medium \${p.risk >= 70 ? 'text-green-600' : 'text-yellow-600'}">\${p.risk}</span>
-                        <span class="text-gray-400 text-sm">/100</span>
+                        <span class="font-semibold text-sm \${p.risk >= 70 ? 'text-success-600' : 'text-warning-500'}">\${p.risk}</span>
+                        <span class="text-primary-300 text-xs ml-1">/100</span>
                     </div>
                 </td>
                 <td class="px-4 py-4">
                     <span class="status-badge status-\${p.status}">\${p.status === 'active' ? '执行中' : '已完成'}</span>
                 </td>
                 <td class="px-4 py-4">
-                    <button onclick="viewDetail(\${p.id})" class="text-indigo-600 hover:text-indigo-800 text-sm">
+                    <button onclick="viewDetail(\${p.id})" class="text-primary-600 hover:text-primary-900 text-sm font-medium transition">
                         查看详情
                     </button>
                 </td>
@@ -287,26 +291,26 @@ export const renderInvestorOverview = () => baseLayout('市场总览', `
 
     function renderEvaluatingTable() {
         document.getElementById('evaluating-table').innerHTML = evaluatingProjects.map(p => \`
-            <tr class="border-t hover:bg-gray-50">
+            <tr class="border-b border-primary-50 hover:bg-primary-50 transition">
                 <td class="px-4 py-4">
-                    <div class="font-medium text-gray-800">\${p.name}</div>
+                    <div class="font-medium text-primary-900 text-sm">\${p.name}</div>
                 </td>
-                <td class="px-4 py-4 text-sm">\${p.industry}</td>
-                <td class="px-4 py-4 font-medium">\${p.amount}</td>
-                <td class="px-4 py-4 text-indigo-600 font-medium">\${p.shareRate}</td>
+                <td class="px-4 py-4 text-sm text-primary-600">\${p.industry}</td>
+                <td class="px-4 py-4 font-medium text-primary-900 text-sm">\${p.amount}</td>
+                <td class="px-4 py-4 text-accent-600 font-semibold text-sm">\${p.shareRate}</td>
                 <td class="px-4 py-4">
                     <div class="flex items-center">
-                        <div class="w-16 h-2 bg-gray-200 rounded-full mr-2">
-                            <div class="h-2 bg-indigo-600 rounded-full" style="width: \${p.aiScore}%"></div>
+                        <div class="w-16 h-1.5 bg-primary-100 rounded-full mr-2">
+                            <div class="h-1.5 bg-primary-900 rounded-full" style="width: \${p.aiScore}%"></div>
                         </div>
-                        <span class="font-medium">\${p.aiScore}</span>
+                        <span class="font-semibold text-sm text-primary-900">\${p.aiScore}</span>
                     </div>
                 </td>
                 <td class="px-4 py-4">
-                    \${p.layers.map(l => \`<span class="px-2 py-1 rounded text-xs mr-1 \${getLayerClass(l)}">\${getLayerText(l)}</span>\`).join('')}
+                    \${p.layers.map(l => \`<span class="px-2 py-1 rounded-md text-xs font-medium mr-1 \${getLayerClass(l)}">\${getLayerText(l)}</span>\`).join('')}
                 </td>
                 <td class="px-4 py-4">
-                    <button onclick="viewPipeline(\${p.id})" class="px-3 py-1 bg-indigo-600 text-white rounded text-sm hover:bg-indigo-700">
+                    <button onclick="viewPipeline(\${p.id})" class="px-3 py-1.5 bg-primary-900 text-white rounded-lg text-xs font-medium hover:bg-primary-800 transition">
                         查看评估
                     </button>
                 </td>
@@ -316,9 +320,9 @@ export const renderInvestorOverview = () => baseLayout('市场总览', `
 
     function getLayerClass(layer) {
         const classes = {
-            'senior': 'bg-green-100 text-green-700',
-            'mezzanine': 'bg-yellow-100 text-yellow-700',
-            'subordinate': 'bg-red-100 text-red-700'
+            'senior': 'bg-success-50 text-success-600',
+            'mezzanine': 'bg-warning-50 text-warning-500',
+            'subordinate': 'bg-danger-50 text-danger-500'
         };
         return classes[layer] || '';
     }
@@ -335,17 +339,17 @@ export const renderInvestorOverview = () => baseLayout('市场总览', `
         const evaluatingList = document.getElementById('evaluating-list');
         
         if (tab === 'invested') {
-            investedTab.classList.add('text-indigo-600', 'border-b-2', 'border-indigo-600');
-            investedTab.classList.remove('text-gray-500');
-            evaluatingTab.classList.remove('text-indigo-600', 'border-b-2', 'border-indigo-600');
-            evaluatingTab.classList.add('text-gray-500');
+            investedTab.classList.add('text-primary-900', 'border-b-2', 'border-primary-900');
+            investedTab.classList.remove('text-primary-400');
+            evaluatingTab.classList.remove('text-primary-900', 'border-b-2', 'border-primary-900');
+            evaluatingTab.classList.add('text-primary-400');
             investedList.classList.remove('hidden');
             evaluatingList.classList.add('hidden');
         } else {
-            evaluatingTab.classList.add('text-indigo-600', 'border-b-2', 'border-indigo-600');
-            evaluatingTab.classList.remove('text-gray-500');
-            investedTab.classList.remove('text-indigo-600', 'border-b-2', 'border-indigo-600');
-            investedTab.classList.add('text-gray-500');
+            evaluatingTab.classList.add('text-primary-900', 'border-b-2', 'border-primary-900');
+            evaluatingTab.classList.remove('text-primary-400');
+            investedTab.classList.remove('text-primary-900', 'border-b-2', 'border-primary-900');
+            investedTab.classList.add('text-primary-400');
             evaluatingList.classList.remove('hidden');
             investedList.classList.add('hidden');
         }
