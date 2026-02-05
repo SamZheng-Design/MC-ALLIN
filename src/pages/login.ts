@@ -65,24 +65,29 @@ export const renderLoginPage = () => baseLayout('登录/注册', `
                 <p class="text-center text-xs text-primary-400 mb-3">内部员工</p>
                 <div class="grid grid-cols-5 gap-1.5">
                     <button onclick="quickLogin('legal')" 
-                            class="px-2 py-2 bg-primary-50 text-primary-600 rounded-lg text-xs hover:bg-primary-100 transition" title="法务">
-                        <i class="fas fa-balance-scale"></i>
+                            class="px-2 py-2.5 bg-primary-50 text-primary-600 rounded-lg text-xs hover:bg-primary-100 transition flex flex-col items-center" title="法务">
+                        <i class="fas fa-balance-scale text-sm mb-1"></i>
+                        <span class="text-[10px] text-primary-500">法务</span>
                     </button>
                     <button onclick="quickLogin('risk')" 
-                            class="px-2 py-2 bg-primary-50 text-primary-600 rounded-lg text-xs hover:bg-primary-100 transition" title="风控">
-                        <i class="fas fa-shield-alt"></i>
+                            class="px-2 py-2.5 bg-primary-50 text-primary-600 rounded-lg text-xs hover:bg-primary-100 transition flex flex-col items-center" title="风控">
+                        <i class="fas fa-shield-alt text-sm mb-1"></i>
+                        <span class="text-[10px] text-primary-500">风控</span>
                     </button>
                     <button onclick="quickLogin('finance')" 
-                            class="px-2 py-2 bg-primary-50 text-primary-600 rounded-lg text-xs hover:bg-primary-100 transition" title="财务">
-                        <i class="fas fa-university"></i>
+                            class="px-2 py-2.5 bg-primary-50 text-primary-600 rounded-lg text-xs hover:bg-primary-100 transition flex flex-col items-center" title="财务">
+                        <i class="fas fa-university text-sm mb-1"></i>
+                        <span class="text-[10px] text-primary-500">财务</span>
                     </button>
                     <button onclick="quickLogin('scheme')" 
-                            class="px-2 py-2 bg-primary-50 text-primary-600 rounded-lg text-xs hover:bg-primary-100 transition" title="方案组">
-                        <i class="fas fa-calculator"></i>
+                            class="px-2 py-2.5 bg-primary-50 text-primary-600 rounded-lg text-xs hover:bg-primary-100 transition flex flex-col items-center" title="方案组">
+                        <i class="fas fa-calculator text-sm mb-1"></i>
+                        <span class="text-[10px] text-primary-500">方案</span>
                     </button>
                     <button onclick="quickLogin('interest')" 
-                            class="px-2 py-2 bg-primary-50 text-primary-600 rounded-lg text-xs hover:bg-primary-100 transition" title="利益组">
-                        <i class="fas fa-handshake"></i>
+                            class="px-2 py-2.5 bg-primary-50 text-primary-600 rounded-lg text-xs hover:bg-primary-100 transition flex flex-col items-center" title="利益组">
+                        <i class="fas fa-handshake text-sm mb-1"></i>
+                        <span class="text-[10px] text-primary-500">利益</span>
                     </button>
                 </div>
             </div>
