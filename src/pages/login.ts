@@ -45,23 +45,38 @@ export const renderLoginPage = () => baseLayout('登录/注册', `
             
             <!-- 快捷登录（演示用） -->
             <div class="mt-6 pt-6 border-t">
-                <p class="text-center text-sm text-gray-500 mb-4">快捷演示登录</p>
-                <div class="grid grid-cols-2 gap-3">
+                <p class="text-center text-sm text-gray-500 mb-3">快捷演示登录</p>
+                <div class="grid grid-cols-2 gap-2 mb-3">
                     <button onclick="quickLogin('financer')" 
-                            class="px-4 py-2 border border-indigo-300 text-indigo-600 rounded-lg text-sm hover:bg-indigo-50 transition">
+                            class="px-3 py-2 border border-indigo-300 text-indigo-600 rounded-lg text-sm hover:bg-indigo-50 transition">
                         <i class="fas fa-building mr-1"></i>融资者
                     </button>
                     <button onclick="quickLogin('investor')" 
-                            class="px-4 py-2 border border-green-300 text-green-600 rounded-lg text-sm hover:bg-green-50 transition">
+                            class="px-3 py-2 border border-green-300 text-green-600 rounded-lg text-sm hover:bg-green-50 transition">
                         <i class="fas fa-chart-line mr-1"></i>投资者
                     </button>
+                </div>
+                <p class="text-center text-xs text-gray-400 mb-2">内部员工工作台</p>
+                <div class="grid grid-cols-3 gap-2">
                     <button onclick="quickLogin('legal')" 
-                            class="px-4 py-2 border border-purple-300 text-purple-600 rounded-lg text-sm hover:bg-purple-50 transition">
+                            class="px-2 py-2 border border-purple-300 text-purple-600 rounded-lg text-xs hover:bg-purple-50 transition">
                         <i class="fas fa-balance-scale mr-1"></i>法务
                     </button>
                     <button onclick="quickLogin('risk')" 
-                            class="px-4 py-2 border border-red-300 text-red-600 rounded-lg text-sm hover:bg-red-50 transition">
+                            class="px-2 py-2 border border-red-300 text-red-600 rounded-lg text-xs hover:bg-red-50 transition">
                         <i class="fas fa-shield-alt mr-1"></i>风控
+                    </button>
+                    <button onclick="quickLogin('finance')" 
+                            class="px-2 py-2 border border-green-300 text-green-600 rounded-lg text-xs hover:bg-green-50 transition">
+                        <i class="fas fa-university mr-1"></i>财务
+                    </button>
+                    <button onclick="quickLogin('scheme')" 
+                            class="px-2 py-2 border border-blue-300 text-blue-600 rounded-lg text-xs hover:bg-blue-50 transition">
+                        <i class="fas fa-calculator mr-1"></i>方案组
+                    </button>
+                    <button onclick="quickLogin('interest')" 
+                            class="px-2 py-2 border border-yellow-300 text-yellow-600 rounded-lg text-xs hover:bg-yellow-50 transition">
+                        <i class="fas fa-handshake mr-1"></i>利益组
                     </button>
                 </div>
             </div>
@@ -323,7 +338,10 @@ export const renderLoginPage = () => baseLayout('登录/注册', `
             'financer': { account: '13800138001', password: 'demo123' },
             'investor': { account: '13800138002', password: 'demo123' },
             'legal': { account: 'legal@dgt.com', password: 'demo123' },
-            'risk': { account: 'risk@dgt.com', password: 'demo123' }
+            'risk': { account: 'risk@dgt.com', password: 'demo123' },
+            'finance': { account: 'finance@dgt.com', password: 'demo123' },
+            'scheme': { account: 'scheme@dgt.com', password: 'demo123' },
+            'interest': { account: 'interest@dgt.com', password: 'demo123' }
         };
         
         const { account, password } = accounts[type];
